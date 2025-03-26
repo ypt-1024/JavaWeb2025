@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 这里也可以用浏览器打开连接,然后将获得的文本单独保存进入一个vue.js的文件,导入vue.js文件即可 -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<div id="app">
+
+    <!-- 给style属性绑定colorStyle数据 -->
+    <h1 v-bind:style="colorStyle">{{headline}}</h1>
+
+    <!-- v-text设置p标签中的文本 -->
+    <p v-text="article"></p>
+
+    <!-- 给type属性绑定inputType数据 -->
+    <input v-bind:type="inputType" value="helloVue3"> <br>
+    <!-- 给按钮单击事件绑定函数 -->
+    <button @click="sayHello()">hello</button>
+</div>
+
+<script>
+
+    //组合api
+    const app = Vue.createApp({
+        // 在setup内部自由声明数据和方法即可!最终返回!
+        setup() {
+
+            // vue3中,数据默认不是响应式的,需要加ref或者reactive处理,后面会详细讲解
+            let colorStyle = {'color': 'red'}
+            let headline = 'hello vue3'
+            let article = 'vue is awesome'
+            let inputType = 'text'
+
+            // 定义函数
+            let sayHello = () => {
+                alert("hello Vue")
+            }
+            //在setup函数中,return返回的数据和函数可以在html使用
+            return {
+                colorStyle,
+                headline,
+                article,
+                inputType,
+
+                sayHello
+            }
+        }
+    });
+    //挂载到视图
+    app.mount("#app");
+</script>
+</body>
+</html>
