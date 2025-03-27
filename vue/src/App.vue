@@ -2,10 +2,11 @@
 import HelloWorld from './components/HelloWorld.vue'
 import Base from "./components/base.vue";
 import Base1 from "./components/base1.vue";
+import Base2 from "./components/base2.vue";
 </script>
 
 <template>
-  <Base1/>
+  <Base2/>
 </template>
 
 <style scoped>
