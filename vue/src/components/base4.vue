@@ -1,18 +1,22 @@
 <script type="module" setup>
-import {ref} from "vue";
+import {reactive, ref} from "vue";
 
-let counter = ref(0);
+let data = reactive(
+    {
+      count: 0,
+    }
+)
 
 function show() {
-  alert(counter.value);
+  alert(data.count);
 }
 </script>
 
 <template>
   <div>
-    <button @click="counter--">-</button>
-    {{ counter }}
-    <button @click="counter++">+</button>
+    <button @click="data.count--">-</button>
+    {{ data.count }}
+    <button @click="data.count++">+</button>
     <hr>
     <button @click="show()">显示counter值</button>
   </div>
